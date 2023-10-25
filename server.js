@@ -1,27 +1,29 @@
 const express = require('express'); //importing express as a variable. 
-const path = require('path');
-const fs = require('fs');
+//const path = require('path'); //imports path module from node js. Provides utilities for working with the file & directory path. 
+//const fs = require('fs');
 //const termData = require('./db/db.json')
-const api = require('./routes/index.js');
+const api = require('./routes/notes.js');
+const html = require('./routes/index.js')
 const PORT = process.env.PORT || 3001;
 
 const app = express(); //put the express function from the library as a variable. 
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);// Got a route called /api
+app.use(express.json());//adds middleware 
+app.use(express.urlencoded({ extended: true }));// allowing data to be parse with the query string library.
+app.use('/notes', api);// Got a route called /api
+app.use('/', html);
 
 
-app.use(express.static('public')); //Tells code where to find the html & css files. 
+app.use(express.static('public')); //Tells code where to find the html, css, & js files. 
 
 
 //Front end routes for index & notes html 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
-}); 
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/public/index.html'));
+// }); 
 
-app.get('/notes', (req, res) => 
-res.sendFile(path.join(__dirname, '/public/notes.html'))); 
+// app.get('/notes', (req, res) => 
+// res.sendFile(path.join(__dirname, '/public/notes.html'))); 
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
