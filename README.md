@@ -37,6 +37,7 @@ Read about your license MIT
 
  ## Links 
 Deployed page: https://kaidoll.github.io/NoteTakerExpress/
+Heroku link: https://notetakerexpresss-673156861e98.herokuapp.com/  
 
  ## Github 
 Username: KaiDoll
