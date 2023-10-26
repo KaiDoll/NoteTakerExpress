@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); //Tells code where to find the html, css, & js files. 
 
 // allowing data to be parse with the query string library.
-app.use('/api', api);// Got a route called /api
+app.use('/api', api);// Base route. Got a route called /api
 app.use('/', html);
 
 
