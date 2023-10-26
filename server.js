@@ -9,21 +9,13 @@ const PORT = process.env.PORT || 3001;
 const app = express(); //put the express function from the library as a variable. 
 
 app.use(express.json());//adds middleware 
-app.use(express.urlencoded({ extended: true }));// allowing data to be parse with the query string library.
-app.use('/notes', api);// Got a route called /api
-app.use('/', html);
-
-
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); //Tells code where to find the html, css, & js files. 
 
+// allowing data to be parse with the query string library.
+app.use('/api', api);// Got a route called /api
+app.use('/', html);
 
-//Front end routes for index & notes html 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/public/index.html'));
-// }); 
-
-// app.get('/notes', (req, res) => 
-// res.sendFile(path.join(__dirname, '/public/notes.html'))); 
 
 app.listen(PORT, () =>
   console.log(`Example app listening at http://localhost:${PORT}`)
