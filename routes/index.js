@@ -4,7 +4,7 @@ const path = require('path'); //imports path module from node js. Provides utili
 router.get('/notes', (req, res) => 
 res.sendFile(path.join(__dirname, '../public/notes.html'))); 
 
-router.get('/index', (req, res) => {
+router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 }); 
 
